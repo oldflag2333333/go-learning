@@ -4,9 +4,13 @@ import "fmt"
 import "github.com/oldflag/awesome/src/slice"
 
 func main() {
-	numbers := []int{1, 2, 3, 4, 5}
-	index := 2 // 要删除的元素的索引
+	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
 
-	numbers = slice.DeleteSliceElement(numbers, index)
-	fmt.Println(numbers) // 输出: [1 2 4 5]
+	for i := 0; i < 12; i++ {
+		numbers = slice.DeleteSliceElement(numbers, 2)
+		fmt.Println(numbers, len(numbers), cap(numbers))
+	}
+
+	numbers = slice.DeleteSliceElement(numbers, 0)
+	fmt.Println(numbers, len(numbers), cap(numbers))
 }
