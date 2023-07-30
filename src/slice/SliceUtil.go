@@ -1,6 +1,6 @@
 package slice
 
-func DeleteSliceElement[T any](sl []T, index int) []T {
+func Remove[T any](sl []T, index int) []T {
 	l := len(sl)
 	c := cap(sl)
 
