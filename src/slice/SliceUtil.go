@@ -11,10 +11,11 @@ func DeleteSliceElement[T any](sl []T, index int) []T {
 	if l-1 <= c>>2 {
 		// 1/4 时缩容一半
 		result := make([]T, l-1, (c+1)/2)
+		// 删除第一个元素没有前半段
 		if index != 0 {
 			copy(result, sl[:index])
 		}
-		// 如果删除的是最后一个元素就不用拷贝另外一部分
+		// 删除最后一个元素没有后半段
 		if l > index {
 			copy(result[index:], sl[index+1:])
 		}
