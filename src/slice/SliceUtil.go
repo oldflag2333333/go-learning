@@ -1,6 +1,6 @@
 package slice
 
-func DeleteSliceElement(sl []int, index int) []int {
+func DeleteSliceElement[T any](sl []T, index int) []T {
 	l := len(sl)
 	c := cap(sl)
 
@@ -10,7 +10,7 @@ func DeleteSliceElement(sl []int, index int) []int {
 
 	if l-1 <= c>>2 {
 		// 1/4 时缩容一半
-		result := make([]int, l-1, (c+1)/2)
+		result := make([]T, l-1, (c+1)/2)
 		copy(result, sl[:index])
 		// 如果删除的是最后一个元素就不用拷贝另外一部分
 		if l > index {
